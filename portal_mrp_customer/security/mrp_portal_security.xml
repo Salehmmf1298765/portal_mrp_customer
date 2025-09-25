@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Record rule to restrict portal users to their own Manufacturing Orders
+         Linked via the originating Sale Order (either direct sale_line_id or procurement group sale_id)
+    -->
+    <record id="mrp_production_portal_read_own" model="ir.rule">
+        <field name="name">mrp.production: portal read own</field>
+        <field name="model_id" ref="mrp.model_mrp_production"/>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[
+            ('sale_line_id.order_partner_id','child_of',[user.partner_id.commercial_partner_id.id])
+        ]</field>
+    </record>
+</odoo>
