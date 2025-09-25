@@ -5,7 +5,7 @@
     'version': '18.0.1.0.0',
     'category': 'Manufacturing/Portal',
     'license': 'LGPL-3',
-    'author': "Salah Alhjany",
+    'author': "Salah Alhjany - Professional Odoo Developer",
     'website': "https://wa.me/967711778764",
     'depends': ['portal', 'stock', 'mrp', 'sale_mrp', 'sale', 'website'],
     'data': [
